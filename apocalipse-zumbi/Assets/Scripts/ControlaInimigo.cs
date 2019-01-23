@@ -52,9 +52,8 @@ public class ControlaInimigo : MonoBehaviour {
     // Para o jogo quando eu for atacado
     void AtacaJogador ()
     {
-        Time.timeScale = 0;
-        Jogador.GetComponent<ControlaJogador>().textoGameOver.SetActive(true);
-        Jogador.GetComponent<ControlaJogador>().Vivo = false;
+        int dano = Random.Range(15, 30);
+        Jogador.GetComponent<ControlaJogador>().TomarDano(dano);
     }
 
 }

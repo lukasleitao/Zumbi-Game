@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// SceneManagement para poder reiniciar o jogo
 using UnityEngine.SceneManagement;
 
 public class ControlaJogador : MonoBehaviour {
@@ -9,7 +10,8 @@ public class ControlaJogador : MonoBehaviour {
     private Vector3 direcao;
     public LayerMask MascaraChao;
     public GameObject textoGameOver;
-    public bool Vivo = true;
+    public int Vida = 100;
+    public ControlaInterface scriptControlaInterface;
     private Rigidbody jogadorRigidBody;
     // Assim com animator tbm e etc...
 
@@ -40,7 +42,7 @@ public class ControlaJogador : MonoBehaviour {
             GetComponent<Animator>().SetBool("Movendo", false);
         }
 
-        if (Vivo == false)
+        if (Vida <= 0)
         {
             if(Input.GetButtonDown("Fire1"))
             {
@@ -56,8 +58,7 @@ public class ControlaJogador : MonoBehaviour {
         // Soma a posição atual da física do jogador + a direção onde quero ir. Atualizando frame por frame
         // Velocidade = quadradinhos por frame ; Time.deltatime faz ser quadrados por segundo * direcao que é Vector3
         // Considerando 80 fps fica: (0,0,0) + (0,0,1) * 10 * (1/80)
-        jogadorRigidBody.MovePosition(jogadorRigidBody.position +    
-                                              (direcao * Velocidade * Time.deltaTime));
+        jogadorRigidBody.MovePosition(jogadorRigidBody.position + direcao * Velocidade * Time.deltaTime);
 
         // Raio da origem da câmera até onde o mouse tá apontando
         Ray raio = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -80,8 +81,21 @@ public class ControlaJogador : MonoBehaviour {
 
             GetComponent<Rigidbody>().MoveRotation(novaRotacao);
         }
-
-        
     }
+
+
+    public void TomarDano(int dano)
+    {
+        Vida -= dano;
+        scriptControlaInterface.AtualizarSliderVidaJogador();
+
+        if (Vida <= 0)
+        {
+            Time.timeScale = 0;
+            // Está no Canvas
+            GetComponent<ControlaJogador>().textoGameOver.SetActive(true);
+        }
+    }
+    
 }
 
