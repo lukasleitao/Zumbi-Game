@@ -1,7 +1,5 @@
 # Zumbi-Game
-Version 1:
-
-https://lukasleitao.itch.io/apocalipsezumbi1
+[Version 1](https://lukasleitao.itch.io/apocalipsezumbi1)
 
 password: zumbi
 
