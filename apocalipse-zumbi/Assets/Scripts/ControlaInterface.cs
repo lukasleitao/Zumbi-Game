@@ -16,6 +16,7 @@ public class ControlaInterface : MonoBehaviour
         scriptControlaJogador = GameObject.FindWithTag("Jogador").GetComponent<ControlaJogador>();
         // Iniciar o jogo com o valor máximo do slider igual ao da vida
         SliderVidaJogador.maxValue = scriptControlaJogador.Vida;
+        AtualizarSliderVidaJogador();
     }
 
     // Update is called once per frame

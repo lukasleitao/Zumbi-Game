@@ -11,6 +11,8 @@ public class ControlaJogador : MonoBehaviour {
     public LayerMask MascaraChao;
     public GameObject textoGameOver;
     public int Vida = 100;
+    // Fui no jogador, achei esse script na interface e joguei o script do canvas nele
+    // No script ControlaInterface está privado e não público
     public ControlaInterface scriptControlaInterface;
     private Rigidbody jogadorRigidBody;
     // Assim com animator tbm e etc...
