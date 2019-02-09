@@ -14,8 +14,9 @@ public class ControlaJogador : MonoBehaviour {
     // Fui no jogador, achei esse script na interface e joguei o script do canvas nele
     // No script ControlaInterface está privado e não público
     public ControlaInterface scriptControlaInterface;
-    private Rigidbody jogadorRigidBody;
     // Assim com animator tbm e etc...
+    private Rigidbody jogadorRigidBody;
+    public AudioClip SomDeDano;
 
     // Quando recomeçar o jogo não recomeçar congelado
     private void Start()
@@ -90,6 +91,7 @@ public class ControlaJogador : MonoBehaviour {
     {
         Vida -= dano;
         scriptControlaInterface.AtualizarSliderVidaJogador();
+        ControlaAudio.instancia.PlayOneShot(SomDeDano);
 
         if (Vida <= 0)
         {

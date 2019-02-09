@@ -6,6 +6,7 @@ public class AtiraBala : MonoBehaviour {
 
     public GameObject Bala;
     public GameObject CanoDaArma;
+    public AudioClip SomDeTiro;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +18,7 @@ public class AtiraBala : MonoBehaviour {
         if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(Bala,CanoDaArma.transform.position, CanoDaArma.transform.rotation);
+            ControlaAudio.instancia.PlayOneShot(SomDeTiro);
         }
 	}
 }
