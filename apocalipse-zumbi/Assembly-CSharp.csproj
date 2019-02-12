@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AnimacaoPersonagem.cs" />
     <Compile Include="Assets\Scripts\AtiraBala.cs" />
     <Compile Include="Assets\Scripts\Bala.cs" />
     <Compile Include="Assets\Scripts\ControlaAudio.cs" />
@@ -69,6 +70,8 @@
     <Compile Include="Assets\Scripts\ControlaInterface.cs" />
     <Compile Include="Assets\Scripts\ControlaJogador.cs" />
     <Compile Include="Assets\Scripts\GeradorZumbis.cs" />
+    <Compile Include="Assets\Scripts\MovimentaPersonagem.cs" />
+    <Compile Include="Assets\Scripts\MovimentoJogador.cs" />
     <None Include="Assets\Modelos3D\Personagens\Animacoes\Animacoes.txt" />
     <None Include="Assets\Modelos3D\Personagens\Animacoes\Animacoes_Zumbi.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">

@@ -6,21 +6,19 @@ public class ControlaInimigo : MonoBehaviour {
 
     public GameObject Jogador;
     public float Velocidade = 5;
+    private MovimentaPersonagem movimentaInimigo;
+    private AnimacaoPersonagem animaInimigo;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         // Quando o gerador cria um zumbi, ele procura pela tag Jogador nos objetos
         Jogador = GameObject.FindGameObjectWithTag("Jogador");
-        int geraTipoZumbi = Random.Range(1, 28);
-        // Entra no zumbi, escolhe 1 aleatório de 27, entra nas opções do objeto e ativa o quadradinho dele
-        transform.GetChild(geraTipoZumbi).gameObject.SetActive(true);
-	}
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        movimentaInimigo = GetComponent<MovimentaPersonagem>();
+        animaInimigo = GetComponent<AnimacaoPersonagem>();
+        AleatorizarZumbi();
     }
+
 
     // FixedUpdate is called once per 0.02s
     private void FixedUpdate()
@@ -30,21 +28,17 @@ public class ControlaInimigo : MonoBehaviour {
         // Direção é a posição do jogador menos a minha
         Vector3 direcao = Jogador.transform.position - transform.position;
 
-        // A direção calculada vai ser pra onde o zumbi vai olhar.
-        Quaternion novaRotacao = Quaternion.LookRotation(direcao);
-        GetComponent<Rigidbody>().MoveRotation(novaRotacao);
+        movimentaInimigo.Rotacionar(direcao);
 
         if (distancia > 2.5)
         {
-            // Normalizando o vetor posição para virar um vetor unitário
-            GetComponent<Rigidbody>().MovePosition
-                (GetComponent<Rigidbody>().position + direcao.normalized * Velocidade * Time.deltaTime);
+            movimentaInimigo.Movimentar(direcao, Velocidade);
 
-            GetComponent<Animator>().SetBool("Atacando", false);
+            animaInimigo.Atacar(false);
         }
         else  // Atacando quando estiver perto
         {
-            GetComponent<Animator>().SetBool("Atacando", true);
+            animaInimigo.Atacar(true);
         }
 
     }
@@ -56,4 +50,10 @@ public class ControlaInimigo : MonoBehaviour {
         Jogador.GetComponent<ControlaJogador>().TomarDano(dano);
     }
 
+    void AleatorizarZumbi ()
+    {
+        int geraTipoZumbi = Random.Range(1, 28);
+        // Entra no zumbi, escolhe 1 aleatório de 27, entra nas opções do objeto e ativa o quadradinho dele
+        transform.GetChild(geraTipoZumbi).gameObject.SetActive(true);
+    }
 }

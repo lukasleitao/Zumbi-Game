@@ -14,15 +14,16 @@ public class ControlaJogador : MonoBehaviour {
     // Fui no jogador, achei esse script na interface e joguei o script do canvas nele
     // No script ControlaInterface está privado e não público
     public ControlaInterface scriptControlaInterface;
-    // Assim com animator tbm e etc...
-    private Rigidbody jogadorRigidBody;
     public AudioClip SomDeDano;
+    private MovimentoJogador meuMovimentaJogador;
+    private AnimacaoPersonagem minhaAnimacaoPersonagem;
 
     // Quando recomeçar o jogo não recomeçar congelado
     private void Start()
     {
         Time.timeScale = 1;
-        jogadorRigidBody = GetComponent<Rigidbody>();
+        meuMovimentaJogador = GetComponent<MovimentoJogador>();
+        minhaAnimacaoPersonagem = GetComponent<AnimacaoPersonagem>();
     }
 
     // Update roda a cada frame
@@ -35,15 +36,9 @@ public class ControlaJogador : MonoBehaviour {
         float eixoZ = Input.GetAxis("Vertical");
 
         //direcao = (eixoX, 0, eixoZ);
-        direcao = new Vector3(eixoX, 0, eixoZ);        
+        direcao = new Vector3(eixoX, 0, eixoZ);
 
-        // Máquinas da estado das animações
-        if (direcao != Vector3.zero){
-            GetComponent<Animator>().SetBool("Movendo", true);
-        }
-        else {
-            GetComponent<Animator>().SetBool("Movendo", false);
-        }
+        minhaAnimacaoPersonagem.Movendo(direcao.magnitude);
 
         if (Vida <= 0)
         {
@@ -58,32 +53,9 @@ public class ControlaJogador : MonoBehaviour {
     // FixedUpdate roda a cada 0.02s
     void FixedUpdate()
     {
-        // Soma a posição atual da física do jogador + a direção onde quero ir. Atualizando frame por frame
-        // Velocidade = quadradinhos por frame ; Time.deltatime faz ser quadrados por segundo * direcao que é Vector3
-        // Considerando 80 fps fica: (0,0,0) + (0,0,1) * 10 * (1/80)
-        jogadorRigidBody.MovePosition(jogadorRigidBody.position + direcao * Velocidade * Time.deltaTime);
+        meuMovimentaJogador.Movimentar(direcao, Velocidade);
 
-        // Raio da origem da câmera até onde o mouse tá apontando
-        Ray raio = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        // Pega a posição do raio que ele toca em algo ( já tem valor implícito )
-        RaycastHit impacto;
-
-        // O "out" desse if é só para não dar erro porque impacto não tem valor nenhum explícito
-        // A mascara no chao é pra contar só o chão como algo que o raio pode tocar
-        if(Physics.Raycast(raio,out impacto, 100, MascaraChao))
-        {
-            // "- transform.position" para ser relativo ao jogador
-            Vector3 posicaoMiraJogador = impacto.point - transform.position;
-
-            // Para ficar na altura do jogador
-            posicaoMiraJogador.y = transform.position.y;
-
-            // Pensou em rotação pensou na porra do "Quaternion"
-            Quaternion novaRotacao = Quaternion.LookRotation(posicaoMiraJogador);
-
-            GetComponent<Rigidbody>().MoveRotation(novaRotacao);
-        }
+        meuMovimentaJogador.RotacaoJogador(MascaraChao);
     }
 
 
