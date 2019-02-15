@@ -6,17 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class ControlaJogador : MonoBehaviour {
 
-    public float Velocidade = 10;
     private Vector3 direcao;
     public LayerMask MascaraChao;
     public GameObject textoGameOver;
-    public int Vida = 100;
     // Fui no jogador, achei esse script na interface e joguei o script do canvas nele
     // No script ControlaInterface está privado e não público
     public ControlaInterface scriptControlaInterface;
     public AudioClip SomDeDano;
     private MovimentoJogador meuMovimentaJogador;
     private AnimacaoPersonagem minhaAnimacaoPersonagem;
+    public Status statusJogador;
 
     // Quando recomeçar o jogo não recomeçar congelado
     private void Start()
@@ -24,6 +23,7 @@ public class ControlaJogador : MonoBehaviour {
         Time.timeScale = 1;
         meuMovimentaJogador = GetComponent<MovimentoJogador>();
         minhaAnimacaoPersonagem = GetComponent<AnimacaoPersonagem>();
+        statusJogador = GetComponent<Status>();
     }
 
     // Update roda a cada frame
@@ -40,7 +40,7 @@ public class ControlaJogador : MonoBehaviour {
 
         minhaAnimacaoPersonagem.Movendo(direcao.magnitude);
 
-        if (Vida <= 0)
+        if (statusJogador.Vida <= 0)
         {
             if(Input.GetButtonDown("Fire1"))
             {
@@ -53,7 +53,7 @@ public class ControlaJogador : MonoBehaviour {
     // FixedUpdate roda a cada 0.02s
     void FixedUpdate()
     {
-        meuMovimentaJogador.Movimentar(direcao, Velocidade);
+        meuMovimentaJogador.Movimentar(direcao, statusJogador.Velocidade);
 
         meuMovimentaJogador.RotacaoJogador(MascaraChao);
     }
@@ -61,11 +61,11 @@ public class ControlaJogador : MonoBehaviour {
 
     public void TomarDano(int dano)
     {
-        Vida -= dano;
+        statusJogador.Vida -= dano;
         scriptControlaInterface.AtualizarSliderVidaJogador();
         ControlaAudio.instancia.PlayOneShot(SomDeDano);
 
-        if (Vida <= 0)
+        if (statusJogador.Vida <= 0)
         {
             Time.timeScale = 0;
             // Está no Canvas

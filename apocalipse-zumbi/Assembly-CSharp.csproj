@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\GeradorZumbis.cs" />
     <Compile Include="Assets\Scripts\MovimentaPersonagem.cs" />
     <Compile Include="Assets\Scripts\MovimentoJogador.cs" />
+    <Compile Include="Assets\Scripts\Status.cs" />
     <None Include="Assets\Modelos3D\Personagens\Animacoes\Animacoes.txt" />
     <None Include="Assets\Modelos3D\Personagens\Animacoes\Animacoes_Zumbi.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
