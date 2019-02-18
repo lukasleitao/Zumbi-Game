@@ -2,21 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControlaInimigo : MonoBehaviour {
-
+public class ControlaInimigo : MonoBehaviour, IMatavel
+{
+    public AudioClip SomDeMorte;
+    public StatusInimigo statusInimigo;
     public GameObject Jogador;
     private MovimentaPersonagem movimentaInimigo;
     private AnimacaoPersonagem animaInimigo;
-    private Status statusInimigo;
-
+    private Vector3 posicaoAleatoria;
+    private Vector3 direcao;
+    private float contadorVagar;
+ 
 	// Use this for initialization
 	void Start ()
     {
         // Quando o gerador cria um zumbi, ele procura pela tag Jogador nos objetos
-        Jogador = GameObject.FindGameObjectWithTag("Jogador");
+        Jogador = GameObject.FindGameObjectWithTag(Tags.Jogador);
         movimentaInimigo = GetComponent<MovimentaPersonagem>();
         animaInimigo = GetComponent<AnimacaoPersonagem>();
-        statusInimigo = GetComponent<Status>();
+        statusInimigo = GetComponent<StatusInimigo>();
         AleatorizarZumbi();
     }
 
@@ -26,25 +30,54 @@ public class ControlaInimigo : MonoBehaviour {
     {
         float distancia = Vector3.Distance(transform.position, Jogador.transform.position);
 
-        // Direção é a posição do jogador menos a minha
-        Vector3 direcao = Jogador.transform.position - transform.position;
-
         movimentaInimigo.Rotacionar(direcao);
+        animaInimigo.Movendo(direcao.magnitude);
 
-        if (distancia > 2.5)
+        if (distancia > 15)
         {
-            movimentaInimigo.Movimentar(direcao, statusInimigo.Velocidade);
-
+            Vagar();
+        }
+        else if (distancia > 2.5)
+        {
+            direcao = movimentaInimigo.Perseguir(Jogador, statusInimigo.Velocidade);
             animaInimigo.Atacar(false);
         }
-        else  // Atacando quando estiver perto
+        else 
         {
             animaInimigo.Atacar(true);
         }
 
     }
+   
 
-    // Para o jogo quando eu for atacado
+    private void Vagar()
+    {
+        contadorVagar -= Time.deltaTime;
+
+        if (contadorVagar <= 0)
+        {
+            posicaoAleatoria = AleatorizarPosicao();
+            contadorVagar = statusInimigo.contadorTempoNovaPosicaoAleatoria;
+        }
+
+        bool FicouPertoOSuficiente = Vector3.Distance(posicaoAleatoria, transform.position) <= 0.05;
+        if (FicouPertoOSuficiente == false)
+        {
+            direcao = posicaoAleatoria - transform.position;
+            movimentaInimigo.Movimentar(direcao, statusInimigo.Velocidade);
+        }
+    }
+
+    Vector3 AleatorizarPosicao ()
+    {
+        int raioDaEsfera = 10;
+        Vector3 posicao = Random.insideUnitSphere * raioDaEsfera;
+        posicao += transform.position;
+        posicao.y = transform.position.y;
+
+        return posicao;
+    }
+  
     void AtacaJogador ()
     {
         int dano = Random.Range(15, 30);
@@ -56,5 +89,21 @@ public class ControlaInimigo : MonoBehaviour {
         int geraTipoZumbi = Random.Range(1, 28);
         // Entra no zumbi, escolhe 1 aleatório de 27, entra nas opções do objeto e ativa o quadradinho dele
         transform.GetChild(geraTipoZumbi).gameObject.SetActive(true);
+    }
+
+    public void TomarDano(int dano)
+    {
+        statusInimigo.Vida -= dano;
+
+        if (statusInimigo.Vida <= 0)
+        {
+            Morreu();
+        }
+    }
+
+    public void Morreu()
+    {
+        Destroy(gameObject);
+        ControlaAudio.instancia.PlayOneShot(SomDeMorte);
     }
 }

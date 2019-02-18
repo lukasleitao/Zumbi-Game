@@ -20,4 +20,5 @@ public class AnimacaoPersonagem : MonoBehaviour
     {
         meuAnimator.SetFloat("Movendo", velocidade);
     }
+
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 // SceneManagement para poder reiniciar o jogo
 using UnityEngine.SceneManagement;
 
-public class ControlaJogador : MonoBehaviour {
-
+public class ControlaJogador : MonoBehaviour, IMatavel
+{
     private Vector3 direcao;
     public LayerMask MascaraChao;
     public GameObject textoGameOver;
@@ -54,7 +54,7 @@ public class ControlaJogador : MonoBehaviour {
     void FixedUpdate()
     {
         meuMovimentaJogador.Movimentar(direcao, statusJogador.Velocidade);
-
+        
         meuMovimentaJogador.RotacaoJogador(MascaraChao);
     }
 
@@ -63,15 +63,20 @@ public class ControlaJogador : MonoBehaviour {
     {
         statusJogador.Vida -= dano;
         scriptControlaInterface.AtualizarSliderVidaJogador();
+        // instancia é uma variável public static no script ControlaAudio. Instancia do AudioSource
         ControlaAudio.instancia.PlayOneShot(SomDeDano);
 
         if (statusJogador.Vida <= 0)
         {
-            Time.timeScale = 0;
-            // Está no Canvas
-            GetComponent<ControlaJogador>().textoGameOver.SetActive(true);
+            Morreu();
         }
     }
-    
+
+    public void Morreu()
+    {
+        Time.timeScale = 0;
+        // Está no Canvas
+        GetComponent<ControlaJogador>().textoGameOver.SetActive(true);
+    }
 }
 

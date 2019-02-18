@@ -5,9 +5,9 @@ using UnityEngine;
 public class Bala : MonoBehaviour {
 
     public float Velocidade = 30;
-    public AudioClip SomDeMorte;
+    private int danoDoTiro = 1;
 
-	void FixedUpdate () {
+    void FixedUpdate () {
         GetComponent<Rigidbody>().MovePosition
             (GetComponent<Rigidbody>().position + transform.forward * Velocidade * Time.deltaTime);		
 	}
@@ -17,10 +17,9 @@ public class Bala : MonoBehaviour {
     // Se colidir com zumbi, some a bala e o zumbi. Se não for zumbi, só some a bala
     private void OnTriggerEnter(Collider objetoDeColisao)
     {
-        if (objetoDeColisao.tag == "Inimigo")
+        if (objetoDeColisao.tag == Tags.Inimigo)
         {
-            Destroy(objetoDeColisao.gameObject);
-            ControlaAudio.instancia.PlayOneShot(SomDeMorte);
+            objetoDeColisao.GetComponent<ControlaInimigo>().TomarDano(danoDoTiro);
         }
 
         Destroy(gameObject);

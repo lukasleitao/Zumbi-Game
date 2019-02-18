@@ -28,4 +28,12 @@ public class MovimentaPersonagem : MonoBehaviour
         meuRigidbody.MoveRotation(novaRotacao);
     }
 
+    public Vector3 Perseguir(GameObject ObjetoSeguido, float velocidade)
+    {
+        // Direção é a posição do jogador menos a minha
+        Vector3 direcao = ObjetoSeguido.transform.position - transform.position;
+        Movimentar(direcao, velocidade);
+        // Retorna direção para atualizar a rotação
+        return direcao;
+    }
 }
