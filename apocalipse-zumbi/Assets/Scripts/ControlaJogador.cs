@@ -1,14 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// SceneManagement para poder reiniciar o jogo
-using UnityEngine.SceneManagement;
+
 
 public class ControlaJogador : MonoBehaviour, IMatavel
 {
     private Vector3 direcao;
     public LayerMask MascaraChao;
-    public GameObject textoGameOver;
     // Fui no jogador, achei esse script na interface e joguei o script do canvas nele
     // No script ControlaInterface está privado e não público
     public ControlaInterface scriptControlaInterface;
@@ -20,7 +18,6 @@ public class ControlaJogador : MonoBehaviour, IMatavel
     // Quando recomeçar o jogo não recomeçar congelado
     private void Start()
     {
-        Time.timeScale = 1;
         meuMovimentaJogador = GetComponent<MovimentoJogador>();
         minhaAnimacaoPersonagem = GetComponent<AnimacaoPersonagem>();
         statusJogador = GetComponent<Status>();
@@ -39,14 +36,6 @@ public class ControlaJogador : MonoBehaviour, IMatavel
         direcao = new Vector3(eixoX, 0, eixoZ);
 
         minhaAnimacaoPersonagem.Movendo(direcao.magnitude);
-
-        if (statusJogador.Vida <= 0)
-        {
-            if(Input.GetButtonDown("Fire1"))
-            {
-                SceneManager.LoadScene("game4");
-            }
-        }
 
 	}
 
@@ -74,9 +63,8 @@ public class ControlaJogador : MonoBehaviour, IMatavel
 
     public void Morreu()
     {
-        Time.timeScale = 0;
         // Está no Canvas
-        GetComponent<ControlaJogador>().textoGameOver.SetActive(true);
+        scriptControlaInterface.GameOver();
     }
 }
 

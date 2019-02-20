@@ -7,11 +7,6 @@ public class AtiraBala : MonoBehaviour {
     public GameObject Bala;
     public GameObject CanoDaArma;
     public AudioClip SomDeTiro;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {
