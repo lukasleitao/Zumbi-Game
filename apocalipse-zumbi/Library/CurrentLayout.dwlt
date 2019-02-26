@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 711, y: 474}
   m_MaxSize: {x: 18006, y: 14024}
   vertical: 0
-  controlID: 51
+  controlID: 116
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 474}
   m_MaxSize: {x: 10004, y: 14024}
   vertical: 1
-  controlID: 52
+  controlID: 48
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -275,13 +275,13 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_WindowGUID: 6ebdc1f47c8d94e409aa8a55d8242d23
   m_SceneLighting: 1
-  m_2DMode: 1
+  m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 178.12137, y: 374.44745, z: 5.375}
+    m_Target: {x: -58.548843, y: -187.8276, z: 143.03624}
     speed: 2
-    m_Value: {x: 178.12137, y: 374.44745, z: 5.375}
+    m_Value: {x: -58.548843, y: -187.8276, z: 143.03624}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -301,27 +301,27 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
     yGrid:
-      m_Target: 0
-      speed: 2
-      m_Value: 0
-    zGrid:
       m_Target: 1
       speed: 2
       m_Value: 1
+    zGrid:
+      m_Target: 0
+      speed: 2
+      m_Value: 0
   m_Rotation:
-    m_Target: {x: 0, y: 0, z: 0, w: 1}
+    m_Target: {x: 0.4283794, y: -0.14318159, z: 0.06895441, w: 0.8895142}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_Value: {x: 0.4283794, y: -0.14318159, z: 0.06895441, w: 0.8895142}
   m_Size:
-    m_Target: 1067.3054
+    m_Target: 303.70956
     speed: 2
-    m_Value: 1067.3054
+    m_Value: 303.70956
   m_Ortho:
-    m_Target: 1
+    m_Target: 0
     speed: 2
-    m_Value: 1
+    m_Value: 0
   m_ShowGlobalGrid: 1
-  m_LastSceneViewRotation: {x: 0.3552104, y: 0.12062041, z: -0.046278365, w: 0.9258157}
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -534,9 +534,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 76010000
       m_LastClickedID: 0
-      m_ExpandedIDs: 9c91fffffc9dffffd4fbffff2e180000
+      m_ExpandedIDs: c6fbfeffe4fbfeff20fdfeffd4fbffff981a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -598,20 +598,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Interface
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Interface
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Lukas\Desktop\Zumbi-Game\apocalipse-zumbi
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 177}
-    m_SelectedIDs: 7a0e0000
-    m_LastClickedID: 3706
-    m_ExpandedIDs: 00000000480b00007e0b0000a80d0000b80f0000ea12000000ca9a3b
+    scrollPos: {x: 0, y: 127}
+    m_SelectedIDs: 42140000
+    m_LastClickedID: 5186
+    m_ExpandedIDs: 00000000480b00007e0b0000aa0d0000bc0f0000ee12000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -639,7 +639,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000480b00007e0b0000a80d0000b80f0000ea120000
+    m_ExpandedIDs: 00000000480b00007e0b0000aa0d0000bc0f0000ee120000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -670,18 +670,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300006c38000078170000c20e0000b6150000043a000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Botao_Cinza01
-      m_OriginalName: Botao_Cinza01
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 3214
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 9}
     m_CreateAssetUtility:

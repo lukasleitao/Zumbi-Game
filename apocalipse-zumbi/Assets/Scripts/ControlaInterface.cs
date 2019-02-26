@@ -11,7 +11,10 @@ public class ControlaInterface : MonoBehaviour
     private ControlaJogador scriptControlaJogador;
     // Só queremos o Slider do GameObject
     public Slider SliderVidaJogador;
-    public GameObject PainelGameOver; 
+    public GameObject PainelGameOver;
+    public Text TextoTempoDeSobrevivencia;
+    public Text TextoTempoMaximoSobrevivenciaSalvo;
+    private float tempoMaximoSobrevivencia;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,7 @@ public class ControlaInterface : MonoBehaviour
         SliderVidaJogador.maxValue = scriptControlaJogador.statusJogador.Vida;
         AtualizarSliderVidaJogador();
         Time.timeScale = 1;
+        tempoMaximoSobrevivencia = PlayerPrefs.GetFloat(Tags.TempoPontuacaoMaximo);
     }
 
     public void AtualizarSliderVidaJogador ()
@@ -32,6 +36,52 @@ public class ControlaInterface : MonoBehaviour
     {
         Time.timeScale = 0;
         PainelGameOver.SetActive(true);
+
+        int minutos = (int)(Time.timeSinceLevelLoad / 60);
+        int segundos = (int)(Time.timeSinceLevelLoad % 60);
+
+        TextoTempoDeSobrevivencia.text = "You survived for " + minutos + " minutes e " + segundos + " seconds!";
+
+        AjustarTempoMaximo(minutos, segundos);
+    }
+
+    private void AjustarTempoMaximo(int min, int seg)
+    {
+        if(Time.timeSinceLevelLoad > tempoMaximoSobrevivencia)
+        {
+            tempoMaximoSobrevivencia = Time.timeSinceLevelLoad;
+            TextoTempoMaximoSobrevivenciaSalvo.text = textoMelhorTempo(min, seg);
+
+            PlayerPrefs.SetFloat(Tags.TempoPontuacaoMaximo, tempoMaximoSobrevivencia);
+        }
+
+        if(TextoTempoMaximoSobrevivenciaSalvo.text == "")
+        {
+            int minutos = FloatToMinutes(tempoMaximoSobrevivencia);
+            int segundos = FloatToSeconds(tempoMaximoSobrevivencia);
+
+            TextoTempoMaximoSobrevivenciaSalvo.text = textoMelhorTempo(minutos, segundos);
+        }
+    }
+
+    private string textoMelhorTempo(int min, int seg)
+    {
+        string texto = string.Format("Your best time: {0} minutes and {1} seconds.", min, seg);
+
+        return texto;
+    }
+    public int FloatToMinutes(float tempo)
+    {
+        int minutos = (int)(tempo / 60);
+
+        return minutos;
+    }
+
+    public int FloatToSeconds(float tempo)
+    {
+        int segundos = (int)(tempo % 60);
+
+        return segundos;
     }
 
     public void Reiniciar()

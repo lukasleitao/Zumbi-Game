@@ -33,17 +33,22 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         movimentaInimigo.Rotacionar(direcao);
         animaInimigo.Movendo(direcao.magnitude);
 
+        // vaga
         if (distancia > 15)
         {
             Vagar();
         }
+        // persegue
         else if (distancia > 2.5)
         {
             direcao = movimentaInimigo.Perseguir(Jogador, statusInimigo.Velocidade);
             animaInimigo.Atacar(false);
         }
+        // ataca
         else 
         {
+            direcao = movimentaInimigo.Perseguir(Jogador, statusInimigo.Velocidade);
+
             animaInimigo.Atacar(true);
         }
 

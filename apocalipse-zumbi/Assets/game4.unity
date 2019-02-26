@@ -283,6 +283,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SliderVidaJogador: {fileID: 341831641}
   PainelGameOver: {fileID: 1339861058}
+  TextoTempoDeSobrevivencia: {fileID: 315758058}
+  TextoTempoMaximoSobrevivenciaSalvo: {fileID: 462239427}
 --- !u!4 &34710031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4656246329960846, guid: bf4e53320739441f58d231c2ee884b66,
@@ -1428,6 +1430,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417433, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: TempoGerarZumbi
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c1de8675fcd7b408d81a9bfa5b5de5, type: 3}
 --- !u!1001 &219300990
@@ -1994,6 +2001,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282860515}
   m_CullTransparentMesh: 0
+--- !u!1001 &294891054
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4169313701517417432, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_Name
+      value: GeradorZumbis (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000032902
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417433, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: TempoGerarZumbi
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 44c1de8675fcd7b408d81a9bfa5b5de5, type: 3}
 --- !u!1 &306374418
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,7 +2366,7 @@ GameObject:
   - component: {fileID: 315758059}
   - component: {fileID: 315758058}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TextoSobrevivencia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2335,7 +2416,7 @@ MonoBehaviour:
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -2680,6 +2761,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5d4c7095c7274ebf926e8ccc88e2f07, type: 3}
+--- !u!1001 &373258067
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4169313701517417432, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_Name
+      value: GeradorZumbis (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -43.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000032902
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417433, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: TempoGerarZumbi
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 44c1de8675fcd7b408d81a9bfa5b5de5, type: 3}
 --- !u!1001 &386214064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2848,7 +3003,7 @@ PrefabInstance:
     - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.25
+      value: -9.23
       objectReference: {fileID: 0}
     - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
         type: 3}
@@ -2899,6 +3054,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417433, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: TempoGerarZumbi
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c1de8675fcd7b408d81a9bfa5b5de5, type: 3}
@@ -3194,6 +3354,85 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1454811153}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &462239426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 462239429}
+  - component: {fileID: 462239428}
+  - component: {fileID: 462239427}
+  m_Layer: 5
+  m_Name: TextoSobrevivenciaMaximo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &462239427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462239426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.1672864, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: a98beb6e3b7a97640a53ef088b3fd866, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &462239428
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462239426}
+  m_CullTransparentMesh: 0
+--- !u!224 &462239429
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462239426}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5606232, y: 0.46237022, z: 0.46237022}
+  m_Children: []
+  m_Father: {fileID: 1339861061}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &478244540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6040,7 +6279,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reiniciar
+  m_Text: Try Again
 --- !u!222 &826732175
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7296,6 +7535,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 260142346}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1166518978
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4169313701517417432, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_Name
+      value: GeradorZumbis (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000032902
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -31.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417433, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: TempoGerarZumbi
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 44c1de8675fcd7b408d81a9bfa5b5de5, type: 3}
 --- !u!1001 &1167100061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8462,6 +8775,7 @@ RectTransform:
   m_Children:
   - {fileID: 315758057}
   - {fileID: 2025460901}
+  - {fileID: 462239429}
   m_Father: {fileID: 13141557}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8533,6 +8847,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4e53320739441f58d231c2ee884b66, type: 3}
+--- !u!1001 &1351727767
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4169313701517417432, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_Name
+      value: GeradorZumbis (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 23.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417433, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: TempoGerarZumbi
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 44c1de8675fcd7b408d81a9bfa5b5de5, type: 3}
 --- !u!1 &1357040185 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1197724290165082, guid: ea23067f9f12846ca92a3ea83d019bd6,
@@ -8721,7 +9109,7 @@ PrefabInstance:
     - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.7
+      value: 4.3
       objectReference: {fileID: 0}
     - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
         type: 3}
@@ -8731,7 +9119,7 @@ PrefabInstance:
     - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 32
+      value: 40.8
       objectReference: {fileID: 0}
     - target: {fileID: 4169313701517417434, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
         type: 3}
@@ -8772,6 +9160,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417433, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: TempoGerarZumbi
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c1de8675fcd7b408d81a9bfa5b5de5, type: 3}
@@ -9179,6 +9572,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169313701517417433, guid: 44c1de8675fcd7b408d81a9bfa5b5de5,
+        type: 3}
+      propertyPath: TempoGerarZumbi
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c1de8675fcd7b408d81a9bfa5b5de5, type: 3}
