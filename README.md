@@ -8,5 +8,5 @@ password: zumbi
 password: zumbi2
 
 Game made with Unity.
-Game created by following a tutorial but any mods are welcome. Feel free.
+Any mods are welcome. Feel free.
 
