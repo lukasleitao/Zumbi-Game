@@ -32,7 +32,7 @@ public class GeradorZumbis : MonoBehaviour {
 
     }
 
-    // IEnumerator faz com que o frame não seja atrasado. Sai do while e tenta no próximo fram
+    // IEnumerator faz com que o frame não seja atrasado. Sai do while e tenta no próximo frame
     IEnumerator GerarZumbi()
     {
         int raioDaEsferaDeColisao = 1;

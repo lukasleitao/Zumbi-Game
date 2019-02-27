@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class ControlaJogador : MonoBehaviour, IMatavel
+public class ControlaJogador : MonoBehaviour, IMatavel, ICuravel
 {
     private Vector3 direcao;
     public LayerMask MascaraChao;
@@ -13,6 +13,7 @@ public class ControlaJogador : MonoBehaviour, IMatavel
     public AudioClip SomDeDano;
     private MovimentoJogador meuMovimentaJogador;
     private AnimacaoPersonagem minhaAnimacaoPersonagem;
+    // statusJogador é public por causa do script ControlaInterface
     public Status statusJogador;
 
     // Quando recomeçar o jogo não recomeçar congelado
@@ -65,6 +66,19 @@ public class ControlaJogador : MonoBehaviour, IMatavel
     {
         // Está no Canvas
         scriptControlaInterface.GameOver();
+    }
+
+    public void CurarVida(int quantidadeDeCura)
+    {
+        statusJogador.Vida += quantidadeDeCura;
+
+        // Mathf.Clamp() seria um método da Unity para tratar isso
+        if(statusJogador.Vida > statusJogador.VidaInicial)
+        {
+            statusJogador.Vida = statusJogador.VidaInicial;
+        }
+
+        scriptControlaInterface.AtualizarSliderVidaJogador();
     }
 }
 

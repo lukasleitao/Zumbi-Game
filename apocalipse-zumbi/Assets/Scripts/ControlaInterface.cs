@@ -66,7 +66,7 @@ public class ControlaInterface : MonoBehaviour
 
     private string textoMelhorTempo(int min, int seg)
     {
-        string texto = string.Format("Your best time: {0} minutes and {1} seconds.", min, seg);
+        string texto = string.Format("Best time: {0} minutes and {1} seconds.", min, seg);
 
         return texto;
     }

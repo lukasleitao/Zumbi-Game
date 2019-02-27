@@ -22,7 +22,7 @@ public class MovimentoJogador : MovimentaPersonagem
             // Para ficar na altura do jogador
             posicaoMiraJogador.y = transform.position.y;
 
-            // Pensou em rotação pensou na porra do "Quaternion"
+            // Pensou em rotação pensou no "Quaternion"
             Quaternion novaRotacao = Quaternion.LookRotation(posicaoMiraJogador);
 
             GetComponent<Rigidbody>().MoveRotation(novaRotacao);

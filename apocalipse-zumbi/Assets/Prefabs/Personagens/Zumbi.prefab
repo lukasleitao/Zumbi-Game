@@ -632,8 +632,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SomDeMorte: {fileID: 8300000, guid: 5c3a533595aad39429cbe612bca32a4b, type: 3}
-  statusInimigo: {fileID: 0}
-  Jogador: {fileID: 0}
+  KitMedicoPrefab: {fileID: 1060151288946202, guid: 6150c6f66b7034ec5b3672478195682a,
+    type: 3}
 --- !u!54 &54397259874583004
 Rigidbody:
   m_ObjectHideFlags: 0

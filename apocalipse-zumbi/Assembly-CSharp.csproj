@@ -70,7 +70,9 @@
     <Compile Include="Assets\Scripts\ControlaInterface.cs" />
     <Compile Include="Assets\Scripts\ControlaJogador.cs" />
     <Compile Include="Assets\Scripts\GeradorZumbis.cs" />
+    <Compile Include="Assets\Scripts\ICuravel.cs" />
     <Compile Include="Assets\Scripts\IMatavel.cs" />
+    <Compile Include="Assets\Scripts\KitMedico.cs" />
     <Compile Include="Assets\Scripts\MovimentaPersonagem.cs" />
     <Compile Include="Assets\Scripts\MovimentoJogador.cs" />
     <Compile Include="Assets\Scripts\Status.cs" />

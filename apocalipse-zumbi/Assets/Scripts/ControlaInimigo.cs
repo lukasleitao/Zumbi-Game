@@ -5,13 +5,15 @@ using UnityEngine;
 public class ControlaInimigo : MonoBehaviour, IMatavel
 {
     public AudioClip SomDeMorte;
-    public StatusInimigo statusInimigo;
-    public GameObject Jogador;
+    private StatusInimigo statusInimigo;
+    private GameObject Jogador;
     private MovimentaPersonagem movimentaInimigo;
     private AnimacaoPersonagem animaInimigo;
     private Vector3 posicaoAleatoria;
     private Vector3 direcao;
     private float contadorVagar;
+    public GameObject KitMedicoPrefab;
+    private float porcentagemGerarKitMedico = 0.1f;
  
 	// Use this for initialization
 	void Start ()
@@ -110,5 +112,14 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     {
         Destroy(gameObject);
         ControlaAudio.instancia.PlayOneShot(SomDeMorte);
+        VerificarGeracaoKitMedico(porcentagemGerarKitMedico);
+    }
+
+    private void VerificarGeracaoKitMedico (float porcentagemDeGeracaoDoKitMedico)
+    {
+        if(Random.value <= porcentagemDeGeracaoDoKitMedico)
+        {
+            Instantiate(KitMedicoPrefab, transform.position, Quaternion.identity);
+        }
     }
 }
