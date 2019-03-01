@@ -8,13 +8,15 @@ using UnityEngine.SceneManagement;
 
 public class ControlaInterface : MonoBehaviour
 {
-    private ControlaJogador scriptControlaJogador;
     // Só queremos o Slider do GameObject
     public Slider SliderVidaJogador;
     public GameObject PainelGameOver;
     public Text TextoTempoDeSobrevivencia;
     public Text TextoTempoMaximoSobrevivenciaSalvo;
     private float tempoMaximoSobrevivencia;
+    private int quantidadeDeZumbisMortos;
+    private ControlaJogador scriptControlaJogador;
+    public Text TextoQuantidadeZumbisMortos;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +64,12 @@ public class ControlaInterface : MonoBehaviour
 
             TextoTempoMaximoSobrevivenciaSalvo.text = textoMelhorTempo(minutos, segundos);
         }
+    }
+
+    public void AtualizarQuantidadeZumbiMorto()
+    {
+        quantidadeDeZumbisMortos++;
+        TextoQuantidadeZumbisMortos.text = string.Format("x {0}", quantidadeDeZumbisMortos);
     }
 
     private string textoMelhorTempo(int min, int seg)

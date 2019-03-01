@@ -14,6 +14,9 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     private float contadorVagar;
     public GameObject KitMedicoPrefab;
     private float porcentagemGerarKitMedico = 0.1f;
+    private ControlaInterface scriptControlaInterface;
+    [HideInInspector]
+    public GeradorZumbis MeuGerador;
  
 	// Use this for initialization
 	void Start ()
@@ -23,6 +26,8 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         movimentaInimigo = GetComponent<MovimentaPersonagem>();
         animaInimigo = GetComponent<AnimacaoPersonagem>();
         statusInimigo = GetComponent<StatusInimigo>();
+        // Retorna o primeiro objeto do tipo X -- como ControlaInterface no caso
+        scriptControlaInterface = GameObject.FindObjectOfType(typeof(ControlaInterface)) as ControlaInterface;
         AleatorizarZumbi();
     }
 
@@ -112,7 +117,9 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
     {
         Destroy(gameObject);
         ControlaAudio.instancia.PlayOneShot(SomDeMorte);
+        scriptControlaInterface.AtualizarQuantidadeZumbiMorto();
         VerificarGeracaoKitMedico(porcentagemGerarKitMedico);
+        MeuGerador.DiminuirQuantidadeZumbi();
     }
 
     private void VerificarGeracaoKitMedico (float porcentagemDeGeracaoDoKitMedico)
