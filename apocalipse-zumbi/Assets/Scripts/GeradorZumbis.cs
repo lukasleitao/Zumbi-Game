@@ -12,7 +12,7 @@ public class GeradorZumbis : MonoBehaviour {
     private float distanciaDoJogadorGerarZumbi = 20;
     private GameObject jogador;
     private int quantidadeMaximaZumbisVivos = 2;
-    private int quantidadeZumbisVivo;
+    private int quantidadeZumbisVivos;
     private float tempoProximaDificuldade = 5;
     private float contadorTempoDificuldade;
 
@@ -33,7 +33,7 @@ public class GeradorZumbis : MonoBehaviour {
         bool possoGerarZumbiPelaDistancia = Vector3.Distance(transform.position, jogador.transform.position)
                                                             >= distanciaDoJogadorGerarZumbi;
 
-        bool possoGerarZumbiPelaQuantidade = quantidadeZumbisVivo < quantidadeMaximaZumbisVivos;
+        bool possoGerarZumbiPelaQuantidade = quantidadeZumbisVivos < quantidadeMaximaZumbisVivos;
 
         if (possoGerarZumbiPelaDistancia && possoGerarZumbiPelaQuantidade)
         {
@@ -70,12 +70,13 @@ public class GeradorZumbis : MonoBehaviour {
         ControlaInimigo zumbi = Instantiate(Zumbi, novaPosicaoCriacao, transform.rotation).GetComponent<ControlaInimigo>();
         zumbi.MeuGerador = this;
 
-        quantidadeZumbisVivo++;
+        quantidadeZumbisVivos++;
+    
     }
 
     public void DiminuirQuantidadeZumbi()
     {
-        quantidadeZumbisVivo--;
+        quantidadeZumbisVivos--;
     }
 
     Vector3 AleatorizarPosicao()

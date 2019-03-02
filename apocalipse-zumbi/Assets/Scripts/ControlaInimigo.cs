@@ -55,7 +55,6 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         else 
         {
             direcao = movimentaInimigo.Perseguir(Jogador, statusInimigo.Velocidade);
-
             animaInimigo.Atacar(true);
         }
 
@@ -69,7 +68,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         if (contadorVagar <= 0)
         {
             posicaoAleatoria = AleatorizarPosicao();
-            contadorVagar = statusInimigo.contadorTempoNovaPosicaoAleatoria;
+            contadorVagar = statusInimigo.contadorTempoNovaPosicaoAleatoria + Random.Range(-2f,2f); // random para não padronizar
         }
 
         bool FicouPertoOSuficiente = Vector3.Distance(posicaoAleatoria, transform.position) <= 0.05;
@@ -115,7 +114,13 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
 
     public void Morreu()
     {
-        Destroy(gameObject);
+        float tempoAteZumbiDesaparecer = 2; 
+        Destroy(gameObject, tempoAteZumbiDesaparecer);
+
+        animaInimigo.Morreu();
+        movimentaInimigo.Morrer();
+
+        this.enabled = false;
         ControlaAudio.instancia.PlayOneShot(SomDeMorte);
         scriptControlaInterface.AtualizarQuantidadeZumbiMorto();
         VerificarGeracaoKitMedico(porcentagemGerarKitMedico);

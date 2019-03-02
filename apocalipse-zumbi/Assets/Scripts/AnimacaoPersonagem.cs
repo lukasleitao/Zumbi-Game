@@ -13,12 +13,16 @@ public class AnimacaoPersonagem : MonoBehaviour
 
     public void Atacar (bool estado)
     {
-        meuAnimator.SetBool("Atacando", estado);
+        meuAnimator.SetBool(Tags.Atacando, estado);
     }
 
     public void Movendo (float velocidade)
     {
-        meuAnimator.SetFloat("Movendo", velocidade);
+        meuAnimator.SetFloat(Tags.Movendo, velocidade);
     }
 
+    public void Morreu()
+    {
+        meuAnimator.SetTrigger(Tags.Morreu);
+    }
 }

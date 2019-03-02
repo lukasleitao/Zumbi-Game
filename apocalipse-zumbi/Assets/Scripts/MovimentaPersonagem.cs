@@ -36,4 +36,12 @@ public class MovimentaPersonagem : MonoBehaviour
         // Retorna direção para atualizar a rotação
         return direcao;
     }
+
+    public void Morrer()
+    {
+        // meuRigidbody.constraints = RigidbodyConstraints.None;  -- Não me interessa agora
+        GetComponent<Collider>().enabled = false;
+        meuRigidbody.velocity = Vector3.zero;
+    }
+        
 }

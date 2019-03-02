@@ -5,4 +5,5 @@ using UnityEngine;
 public class StatusInimigo : Status
 {
     public float contadorTempoNovaPosicaoAleatoria = 4;
+
 }
