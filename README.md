@@ -7,6 +7,10 @@ password: zumbi
 
 password: zumbi2
 
+[Version 3](https://lukasleitao.itch.io/apocalipse-zumbi-3)
+
+password: zumbi3
+
 Game made with Unity.
 Any mods are welcome. Feel free.
 
