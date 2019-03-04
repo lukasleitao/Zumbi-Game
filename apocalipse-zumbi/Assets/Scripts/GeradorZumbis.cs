@@ -8,7 +8,7 @@ public class GeradorZumbis : MonoBehaviour {
     public float TempoGerarZumbi = 4;
     public LayerMask LayerZumbi;
     private float contadorTempo = 0;
-    private float raioDaEsferaDeGeracao = 3;
+    private float raioDaEsferaDeGeracao = 4;
     private float distanciaDoJogadorGerarZumbi = 20;
     private GameObject jogador;
     private int quantidadeMaximaZumbisVivos = 2;

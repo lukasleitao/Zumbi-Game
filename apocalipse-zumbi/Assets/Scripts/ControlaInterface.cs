@@ -39,8 +39,8 @@ public class ControlaInterface : MonoBehaviour
         Time.timeScale = 0;
         PainelGameOver.SetActive(true);
 
-        int minutos = (int)(Time.timeSinceLevelLoad / 60);
-        int segundos = (int)(Time.timeSinceLevelLoad % 60);
+        int minutos = FloatToMinutes(Time.timeSinceLevelLoad);
+        int segundos = FloatToSeconds(Time.timeSinceLevelLoad);
 
         TextoTempoDeSobrevivencia.text = "You survived for " + minutos + " minutes e " + segundos + " seconds!";
 

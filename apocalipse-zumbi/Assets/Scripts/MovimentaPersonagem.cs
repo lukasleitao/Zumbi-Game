@@ -39,8 +39,9 @@ public class MovimentaPersonagem : MonoBehaviour
 
     public void Morrer()
     {
-        // meuRigidbody.constraints = RigidbodyConstraints.None;  -- Não me interessa agora
+        // meuRigidbody.constraints = RigidbodyConstraints.None; -- Não me interessa agora -- Ajuda se eu quisesse que ele sumisse no chao
         GetComponent<Collider>().enabled = false;
+        meuRigidbody.isKinematic = false;
         meuRigidbody.velocity = Vector3.zero;
     }
         

@@ -17,9 +17,15 @@ public class Bala : MonoBehaviour {
     // Se colidir com zumbi, some a bala e o zumbi. Se não for zumbi, só some a bala
     private void OnTriggerEnter(Collider objetoDeColisao)
     {
-        if (objetoDeColisao.tag == Tags.Inimigo)
+        switch (objetoDeColisao.tag)
         {
-            objetoDeColisao.GetComponent<ControlaInimigo>().TomarDano(danoDoTiro);
+            case Tags.Inimigo:
+                objetoDeColisao.GetComponent<ControlaInimigo>().TomarDano(danoDoTiro);
+            break;
+
+            case Tags.ChefeDaFase:
+                objetoDeColisao.GetComponent<ControlaChefe>().TomarDano(danoDoTiro);
+            break;
         }
 
         Destroy(gameObject);

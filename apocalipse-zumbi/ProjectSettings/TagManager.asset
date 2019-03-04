@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Inimigo
   - Jogador
+  - ChefeDaFase
   layers:
   - Default
   - TransparentFX

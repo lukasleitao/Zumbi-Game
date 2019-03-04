@@ -97,7 +97,8 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
 
     void AleatorizarZumbi ()
     {
-        int geraTipoZumbi = Random.Range(1, 28);
+        int quantidadeDeVariacaoDeZumbis = transform.childCount;
+        int geraTipoZumbi = Random.Range(1, quantidadeDeVariacaoDeZumbis);
         // Entra no zumbi, escolhe 1 aleatório de 27, entra nas opções do objeto e ativa o quadradinho dele
         transform.GetChild(geraTipoZumbi).gameObject.SetActive(true);
     }
@@ -121,6 +122,7 @@ public class ControlaInimigo : MonoBehaviour, IMatavel
         movimentaInimigo.Morrer();
 
         this.enabled = false;
+
         ControlaAudio.instancia.PlayOneShot(SomDeMorte);
         scriptControlaInterface.AtualizarQuantidadeZumbiMorto();
         VerificarGeracaoKitMedico(porcentagemGerarKitMedico);
