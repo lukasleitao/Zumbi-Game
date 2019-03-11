@@ -42,6 +42,10 @@ public class ControlaChefe : MonoBehaviour, IMatavel
 
         if(agente.hasPath == true)
         {
+            float porcentagemVidaChefe = (float)statusChefe.Vida / statusChefe.VidaInicial;
+            Color corDaVida = Color.Lerp(CorDaVidaMinima, CorDaVidaMaxima, porcentagemVidaChefe);
+            BarraVidaChefe.color = corDaVida;
+
             bool estaPertoDoJogador = agente.remainingDistance <= agente.stoppingDistance;
 
             if (estaPertoDoJogador)
@@ -53,9 +57,6 @@ public class ControlaChefe : MonoBehaviour, IMatavel
             else
             {
                 animaChefe.Atacar(false);
-                float porcentagemVidaChefe = (float)statusChefe.Vida / statusChefe.VidaInicial;
-                Color corDaVida = Color.Lerp(CorDaVidaMinima, CorDaVidaMaxima, porcentagemVidaChefe);
-                BarraVidaChefe.color = corDaVida;
             }
         }
 

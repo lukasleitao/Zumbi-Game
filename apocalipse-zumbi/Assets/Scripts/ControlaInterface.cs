@@ -11,12 +11,14 @@ public class ControlaInterface : MonoBehaviour
     // Só queremos o Slider do GameObject
     public Slider SliderVidaJogador;
     public GameObject PainelGameOver;
-    public Text TextoTempoDeSobrevivencia;
-    public Text TextoTempoMaximoSobrevivenciaSalvo;
     private float tempoMaximoSobrevivencia;
     private int quantidadeDeZumbisMortos;
     private ControlaJogador scriptControlaJogador;
+    // Textos
     public Text TextoQuantidadeZumbisMortos;
+    public Text TextoTempoDeSobrevivencia;
+    public Text TextoTempoMaximoSobrevivenciaSalvo;
+    public Text TextoChefeApareceu;
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +72,35 @@ public class ControlaInterface : MonoBehaviour
     {
         quantidadeDeZumbisMortos++;
         TextoQuantidadeZumbisMortos.text = string.Format("x {0}", quantidadeDeZumbisMortos);
+    }
+
+    public void TextoApareceuZumbi()
+    {
+        float tempoAteSumir = 2;
+        StartCoroutine(DesapareceTextoApareceuChefe(tempoAteSumir, TextoChefeApareceu));
+    }
+
+    IEnumerator DesapareceTextoApareceuChefe(float tempoParaSumir, Text TextoQueVaiSumir)
+    {
+        TextoQueVaiSumir.gameObject.SetActive(true);
+        Color corDoTexto = TextoQueVaiSumir.color;
+        corDoTexto.a = 1;
+        TextoQueVaiSumir.color = corDoTexto;
+        yield return new WaitForSeconds(1);
+        float contador = 0;
+
+        while(corDoTexto.a > 0)
+        {
+            contador += Time.deltaTime / tempoParaSumir;
+            corDoTexto.a = Mathf.Lerp(1, 0, contador);
+            TextoQueVaiSumir.color = corDoTexto;
+            yield return null;
+        }
+
+        if(corDoTexto.a == 0)
+        {
+            TextoQueVaiSumir.gameObject.SetActive(false);
+        }
     }
 
     private string textoMelhorTempo(int min, int seg)

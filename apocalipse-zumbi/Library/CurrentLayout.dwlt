@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 524}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -112,10 +112,10 @@ MonoBehaviour:
     y: 30
     width: 1366
     height: 635
-  m_MinSize: {x: 711, y: 474}
-  m_MaxSize: {x: 18006, y: 14024}
+  m_MinSize: {x: 713, y: 498}
+  m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
-  controlID: 12
+  controlID: 110
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,10 +165,10 @@ MonoBehaviour:
     y: 0
     width: 273
     height: 635
-  m_MinSize: {x: 234, y: 474}
-  m_MaxSize: {x: 10004, y: 14024}
+  m_MinSize: {x: 234, y: 498}
+  m_MaxSize: {x: 10004, y: 14048}
   vertical: 1
-  controlID: 52
+  controlID: 68
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -241,8 +241,8 @@ MonoBehaviour:
     y: 0
     width: 306
     height: 635
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 74}
+  m_MaxSize: {x: 4002, y: 4024}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -306,9 +306,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -13.962064, y: 3.010782, z: -14.618435}
+    m_Target: {x: -40.214577, y: 29.38243, z: 0.57441926}
     speed: 2
-    m_Value: {x: -13.962064, y: 3.010782, z: -14.618435}
+    m_Value: {x: -40.214577, y: 29.38243, z: 0.57441926}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -336,19 +336,19 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.0081895655, y: -0.98852754, z: 0.13914075, w: -0.058191016}
+    m_Target: {x: -0.33679253, y: -0.5808917, z: 0.2862211, w: -0.68352985}
     speed: 2
-    m_Value: {x: -0.0081895655, y: -0.98852754, z: 0.13914075, w: -0.058191016}
+    m_Value: {x: -0.33679253, y: -0.5808917, z: 0.2862211, w: -0.68352985}
   m_Size:
-    m_Target: 10.480449
+    m_Target: 18.299372
     speed: 2
-    m_Value: 10.480449
+    m_Value: 18.299372
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_ShowGlobalGrid: 1
-  m_LastSceneViewRotation: {x: -0.044358447, y: 0.954971, z: -0.22494029, w: -0.18832037}
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -560,10 +560,10 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 120}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 64eaffff70eaffff7ceaffff94f2ffff7af3ffffccfbffff7c370000
+      scrollPos: {x: 0, y: 94}
+      m_SelectedIDs: c0faffff5efbffff4ef7ffff20f7fffff4f7ffff16fbffffdefaffff
+      m_LastClickedID: -1344
+      m_ExpandedIDs: d4fbffffde1a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -625,20 +625,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Interface
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Interface
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Lukas\Desktop\Zumbi-Game\apocalipse-zumbi
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 24310000
-    m_LastClickedID: 12580
-    m_ExpandedIDs: 000000000e280000442800006e2a0000902c0000ca2f000000ca9a3b
+    scrollPos: {x: 0, y: 193}
+    m_SelectedIDs: a40e0000
+    m_LastClickedID: 3748
+    m_ExpandedIDs: 00000000640b00009a0b0000c40d0000e60f00002213000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -666,7 +666,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000e280000442800006e2a0000902c0000ca2f0000
+    m_ExpandedIDs: 00000000640b00009a0b0000c40d0000e60f000022130000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -718,7 +718,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 101}
+    m_ScrollPosition: {x: 0, y: 53}
     m_GridSize: 16
   m_DirectoriesAreaWidth: 110
 --- !u!114 &17
